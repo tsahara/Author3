@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>net.caddr.Author3Helper.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>1F2C352A1C57AC700025B054</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1F2C355E1C57AF490025B054</key>
 		<dict>
 			<key>primary</key>
 			<true/>

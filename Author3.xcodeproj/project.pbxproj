@@ -11,6 +11,9 @@
 		1F2C35221C57AC700025B054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F2C35211C57AC700025B054 /* Assets.xcassets */; };
 		1F2C35251C57AC700025B054 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2C35231C57AC700025B054 /* MainMenu.xib */; };
 		1F2C35301C57AC710025B054 /* Author3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C352F1C57AC710025B054 /* Author3Tests.swift */; };
+		1F2C35621C57AF490025B054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C35611C57AF490025B054 /* main.m */; };
+		1F2C35671C57B0120025B054 /* net.caddr.Author3Helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2C355F1C57AF490025B054 /* net.caddr.Author3Helper */; };
+		1F9F151B1C639FA80019438C /* AuthorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F151A1C639FA80019438C /* AuthorHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -21,7 +24,36 @@
 			remoteGlobalIDString = 1F2C351B1C57AC700025B054;
 			remoteInfo = Author3;
 		};
+		1F2C35681C57B05E0025B054 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F2C35141C57AC700025B054 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F2C355E1C57AF490025B054;
+			remoteInfo = net.caddr.Author3Helper;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1F2C355D1C57AF490025B054 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		1F2C35661C57AF820025B054 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LaunchServices;
+			dstSubfolderSpec = 1;
+			files = (
+				1F2C35671C57B0120025B054 /* net.caddr.Author3Helper in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1F2C351C1C57AC700025B054 /* Author3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Author3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,6 +64,12 @@
 		1F2C352B1C57AC700025B054 /* Author3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Author3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F2C352F1C57AC710025B054 /* Author3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author3Tests.swift; sourceTree = "<group>"; };
 		1F2C35311C57AC710025B054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F2C355F1C57AF490025B054 /* net.caddr.Author3Helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = net.caddr.Author3Helper; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F2C35611C57AF490025B054 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1F9F15171C60C71A0019438C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F9F15181C60C8970019438C /* Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Launchd.plist; sourceTree = "<group>"; };
+		1F9F15191C639F5B0019438C /* AuthorHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthorHelper.h; sourceTree = "<group>"; };
+		1F9F151A1C639FA80019438C /* AuthorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +87,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1F2C355C1C57AF490025B054 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -57,6 +102,7 @@
 			children = (
 				1F2C351E1C57AC700025B054 /* Author3 */,
 				1F2C352E1C57AC700025B054 /* Author3Tests */,
+				1F2C35601C57AF490025B054 /* net.caddr.Author3Helper */,
 				1F2C351D1C57AC700025B054 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,6 +112,7 @@
 			children = (
 				1F2C351C1C57AC700025B054 /* Author3.app */,
 				1F2C352B1C57AC700025B054 /* Author3Tests.xctest */,
+				1F2C355F1C57AF490025B054 /* net.caddr.Author3Helper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +137,18 @@
 			path = Author3Tests;
 			sourceTree = "<group>";
 		};
+		1F2C35601C57AF490025B054 /* net.caddr.Author3Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1F2C35611C57AF490025B054 /* main.m */,
+				1F9F151A1C639FA80019438C /* AuthorHelper.m */,
+				1F9F15191C639F5B0019438C /* AuthorHelper.h */,
+				1F9F15171C60C71A0019438C /* Info.plist */,
+				1F9F15181C60C8970019438C /* Launchd.plist */,
+			);
+			path = net.caddr.Author3Helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -100,10 +159,12 @@
 				1F2C35181C57AC700025B054 /* Sources */,
 				1F2C35191C57AC700025B054 /* Frameworks */,
 				1F2C351A1C57AC700025B054 /* Resources */,
+				1F2C35661C57AF820025B054 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1F2C35691C57B05E0025B054 /* PBXTargetDependency */,
 			);
 			name = Author3;
 			productName = Author3;
@@ -128,6 +189,23 @@
 			productReference = 1F2C352B1C57AC700025B054 /* Author3Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		1F2C355E1C57AF490025B054 /* net.caddr.Author3Helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F2C35651C57AF490025B054 /* Build configuration list for PBXNativeTarget "net.caddr.Author3Helper" */;
+			buildPhases = (
+				1F2C355B1C57AF490025B054 /* Sources */,
+				1F2C355C1C57AF490025B054 /* Frameworks */,
+				1F2C355D1C57AF490025B054 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = net.caddr.Author3Helper;
+			productName = net.caddr.Author3Helper;
+			productReference = 1F2C355F1C57AF490025B054 /* net.caddr.Author3Helper */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -144,6 +222,9 @@
 					1F2C352A1C57AC700025B054 = {
 						CreatedOnToolsVersion = 7.2;
 						TestTargetID = 1F2C351B1C57AC700025B054;
+					};
+					1F2C355E1C57AF490025B054 = {
+						CreatedOnToolsVersion = 7.2;
 					};
 				};
 			};
@@ -162,6 +243,7 @@
 			targets = (
 				1F2C351B1C57AC700025B054 /* Author3 */,
 				1F2C352A1C57AC700025B054 /* Author3Tests */,
+				1F2C355E1C57AF490025B054 /* net.caddr.Author3Helper */,
 			);
 		};
 /* End PBXProject section */
@@ -202,6 +284,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1F2C355B1C57AF490025B054 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F9F151B1C639FA80019438C /* AuthorHelper.m in Sources */,
+				1F2C35621C57AF490025B054 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -209,6 +300,11 @@
 			isa = PBXTargetDependency;
 			target = 1F2C351B1C57AC700025B054 /* Author3 */;
 			targetProxy = 1F2C352C1C57AC700025B054 /* PBXContainerItemProxy */;
+		};
+		1F2C35691C57B05E0025B054 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F2C355E1C57AF490025B054 /* net.caddr.Author3Helper */;
+			targetProxy = 1F2C35681C57B05E0025B054 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -308,6 +404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Author3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -320,6 +417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Author3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -354,6 +452,32 @@
 			};
 			name = Release;
 		};
+		1F2C35631C57AF490025B054 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					net.caddr.Author3Helper/Launchd.plist,
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					net.caddr.Author3Helper/Info.plist,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1F2C35641C57AF490025B054 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -373,6 +497,7 @@
 				1F2C35361C57AC710025B054 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F2C35371C57AC710025B054 /* Build configuration list for PBXNativeTarget "Author3Tests" */ = {
 			isa = XCConfigurationList;
@@ -381,6 +506,16 @@
 				1F2C35391C57AC710025B054 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F2C35651C57AF490025B054 /* Build configuration list for PBXNativeTarget "net.caddr.Author3Helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F2C35631C57AF490025B054 /* Debug */,
+				1F2C35641C57AF490025B054 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
