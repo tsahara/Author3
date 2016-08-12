@@ -10,8 +10,9 @@ import Cocoa
 import Security
 import ServiceManagement
 
-@objc protocol Author3HelperProtocol {
+@objc protocol AuthorHelperProtocol {
     func getVersion(withReply: (NSString) -> Void)
+    //func openBpf(withReply: (Int, Int) -> Void)
 }
 
 @NSApplicationMain
@@ -19,15 +20,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
     
-    var authref = AuthorizationRef()
+    var authref: AuthorizationRef = nil
+    
+    let HelperServiceName = "net.caddr.Author3Helper"
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
 
-        var status: OSStatus
- 
-        let helper = "net.caddr.Author3Helper"
+        try_connect()
+        //return
+        
+        auth_and_bless()
+    }
 
+    func applicationWillTerminate(aNotification: NSNotification) {
+        // Insert code here to tear down your application
+    }
+
+    func auth_and_bless() {
+        
+        var status: OSStatus
+        
         let authFlags = AuthorizationFlags()
         status = AuthorizationCreate(nil, nil, authFlags, &authref)
         if (status != OSStatus(errAuthorizationSuccess)) {
@@ -44,39 +57,50 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             print("AuthorizationCopyRights failed.")
             return;
         }
-        
+
         var cfError: Unmanaged<CFError>?
-        let success = SMJobBless(kSMDomainSystemLaunchd, helper, authref, &cfError)
+        let success = SMJobBless(kSMDomainSystemLaunchd, HelperServiceName, authref, &cfError)
         if !success {
-            print(cfError!)
+            print("SMJobBless failed: \(cfError!)")
         }
-        
+
         getversion()
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
+    func try_connect() {
+        let xpc = NSXPCConnection(machServiceName: HelperServiceName, options: .Privileged)
+        xpc.remoteObjectInterface = NSXPCInterface(withProtocol: AuthorHelperProtocol.self)
+        xpc.resume()
+        print("xpc=\(xpc), pid=\(xpc.processIdentifier)")
+
+        let helper = xpc.remoteObjectProxyWithErrorHandler({
+            err in
+            print("xpc error =>\(err)")
+        }) as! AuthorHelperProtocol
+
+        helper.getVersion({
+            str in
+            print("get version => \(str), pid=\(xpc.processIdentifier)")
+        })
+
+        
     }
 
-
     func getversion() {
-        let helper = "net.caddr.Author3Helper"
-
-        let xpc = NSXPCConnection(machServiceName: helper, options: .Privileged)
-        xpc.remoteObjectInterface = NSXPCInterface(withProtocol: Author3HelperProtocol.self)
+        let xpc = NSXPCConnection(machServiceName: HelperServiceName, options: .Privileged)
+        xpc.remoteObjectInterface = NSXPCInterface(withProtocol: AuthorHelperProtocol.self)
         xpc.invalidationHandler = { print("XPC invalidated...!") }
         xpc.resume()
         print(xpc)
         
         // getVersionAction
-        var proxy = xpc.remoteObjectProxyWithErrorHandler({
+        let proxy = xpc.remoteObjectProxyWithErrorHandler({
             err in
             print("xpc error =>\(err)")
-        }) as! Author3HelperProtocol
+        }) as! AuthorHelperProtocol
         proxy.getVersion({
             str in
-            print("get version => \(str)")
+            print("get version => \(str), pid=\(xpc.processIdentifier)")
         })
     }
 }
-

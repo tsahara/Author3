@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIdentifier</key>
-	<string>net.caddr.Author3Helper</string>
+	<string>net.caddr.Author3HelperX</string>
 	<key>CFBundleName</key>
-	<string>Author3Helper</string>
+	<string>Author3HelperX</string>
 	<key>CFBundleVersion</key>
 	<string>1.5.1</string>
 	<key>CFBundleInfoDictionaryVersion</key>
