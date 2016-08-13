@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         try_connect()
         //return
         
-        auth_and_bless()
+        //auth_and_bless()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
