@@ -23,26 +23,56 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var authref: AuthorizationRef = nil
     
     let HelperServiceName = "net.caddr.Author3Helper"
+    let HelperVersion     = "1.5.3"
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
-
-        try_connect()
-        //return
-        
-        //auth_and_bless()
+        connect_to_helper({
+            success in
+            if success {
+                self.connected()
+            } else {
+                self.install_helper()
+                self.connect_to_helper({
+                    sucess in
+                    if sucess {
+                        self.connected()
+                        print("Installed")
+                    } else {
+                        print("Fatal!  Could not install Helper!")
+                    }
+                })
+            }
+        })
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
+    
+    /**
+     
+     Connect to a helper service.
+     
+     @return whther connection is established or not
+     */
+    func connect_to_helper(callback: (Bool) -> Void) {
+        let xpc = NSXPCConnection(machServiceName: HelperServiceName, options: .Privileged)
+        xpc.remoteObjectInterface = NSXPCInterface(withProtocol: AuthorHelperProtocol.self)
+        xpc.resume()
 
-    func auth_and_bless() {
+        let helper = xpc.remoteObjectProxyWithErrorHandler({
+            _ in callback(false)
+        }) as! AuthorHelperProtocol
         
-        var status: OSStatus
-        
-        let authFlags = AuthorizationFlags()
-        status = AuthorizationCreate(nil, nil, authFlags, &authref)
+        helper.getVersion({
+            version in
+            print("get version => \(version), pid=\(xpc.processIdentifier)")
+            callback(version == self.HelperVersion)
+        })
+    }
+    
+    func install_helper() {
+        var status = AuthorizationCreate(nil, nil, AuthorizationFlags(), &authref)
         if (status != OSStatus(errAuthorizationSuccess)) {
             print("AuthorizationCreate failed.")
             return;
@@ -64,26 +94,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             print("SMJobBless failed: \(cfError!)")
         }
 
+        print("SMJobBless suceeded")
         getversion()
-    }
-
-    func try_connect() {
-        let xpc = NSXPCConnection(machServiceName: HelperServiceName, options: .Privileged)
-        xpc.remoteObjectInterface = NSXPCInterface(withProtocol: AuthorHelperProtocol.self)
-        xpc.resume()
-        print("xpc=\(xpc), pid=\(xpc.processIdentifier)")
-
-        let helper = xpc.remoteObjectProxyWithErrorHandler({
-            err in
-            print("xpc error =>\(err)")
-        }) as! AuthorHelperProtocol
-
-        helper.getVersion({
-            str in
-            print("get version => \(str), pid=\(xpc.processIdentifier)")
-        })
-
-        
     }
 
     func getversion() {
@@ -93,7 +105,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         xpc.resume()
         print(xpc)
         
-        // getVersionAction
         let proxy = xpc.remoteObjectProxyWithErrorHandler({
             err in
             print("xpc error =>\(err)")
@@ -102,5 +113,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             str in
             print("get version => \(str), pid=\(xpc.processIdentifier)")
         })
+    }
+    
+    func connected() {
+        print("Hello!")
     }
 }

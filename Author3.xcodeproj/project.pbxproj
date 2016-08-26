@@ -12,9 +12,9 @@
 		1F2C35251C57AC700025B054 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2C35231C57AC700025B054 /* MainMenu.xib */; };
 		1F2C35301C57AC710025B054 /* Author3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C352F1C57AC710025B054 /* Author3Tests.swift */; };
 		1F2C35621C57AF490025B054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2C35611C57AF490025B054 /* main.m */; };
-		1F2C35671C57B0120025B054 /* net.caddr.Author3Helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2C355F1C57AF490025B054 /* net.caddr.Author3Helper */; };
+		1F2C35671C57B0120025B054 /* net.caddr.Author3Helper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F2C355F1C57AF490025B054 /* net.caddr.Author3Helper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1F81D37C1C6614B100171A8D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81D37B1C6614B100171A8D /* main.swift */; };
-		1F81D3821C66155200171A8D /* net.caddr.Author3HelperX in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F81D3791C6614B100171A8D /* net.caddr.Author3HelperX */; };
+		1F81D3821C66155200171A8D /* net.caddr.Author3HelperX in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F81D3791C6614B100171A8D /* net.caddr.Author3HelperX */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1F81D3861C661A5600171A8D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81D3851C661A5600171A8D /* Helper.swift */; };
 		1F9F151B1C639FA80019438C /* AuthorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F151A1C639FA80019438C /* AuthorHelper.m */; };
 /* End PBXBuildFile section */
@@ -541,7 +541,6 @@
 		1F2C35631C57AF490025B054 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				OTHER_LDFLAGS = (
 					"-sectcreate",
 					__TEXT,
@@ -560,7 +559,6 @@
 		1F2C35641C57AF490025B054 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
