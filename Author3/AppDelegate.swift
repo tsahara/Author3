@@ -11,7 +11,7 @@ import Security
 import ServiceManagement
 
 @objc protocol AuthorHelperProtocol {
-    func getVersion(withReply: (NSString) -> Void)
+    func getVersion(_ withReply: (NSString) -> Void)
     //func openBpf(withReply: (Int, Int) -> Void)
 }
 
@@ -20,12 +20,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
     
-    var authref: AuthorizationRef = nil
+    var authref: AuthorizationRef? = nil
     
     let HelperServiceName = "net.caddr.Author3Helper"
     let HelperVersion     = "1.5.3"
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         connect_to_helper({
             success in
             if success {
@@ -45,7 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         })
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
     
@@ -55,9 +55,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      
      @return whther connection is established or not
      */
-    func connect_to_helper(callback: (Bool) -> Void) {
-        let xpc = NSXPCConnection(machServiceName: HelperServiceName, options: .Privileged)
-        xpc.remoteObjectInterface = NSXPCInterface(withProtocol: AuthorHelperProtocol.self)
+    func connect_to_helper(_ callback: @escaping (Bool) -> Void) {
+        let xpc = NSXPCConnection(machServiceName: HelperServiceName, options: .privileged)
+        xpc.remoteObjectInterface = NSXPCInterface(with: AuthorHelperProtocol.self)
         xpc.resume()
 
         let helper = xpc.remoteObjectProxyWithErrorHandler({
@@ -67,7 +67,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         helper.getVersion({
             version in
             print("get version => \(version), pid=\(xpc.processIdentifier)")
-            callback(version == self.HelperVersion)
+            callback(version as String == self.HelperVersion)
         })
     }
     
@@ -80,16 +80,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         var item = AuthorizationItem(name: kSMRightBlessPrivilegedHelper, valueLength: 0, value: nil, flags: 0)
         var rights = AuthorizationRights(count: 1, items: &item)
-        let flags = AuthorizationFlags([.InteractionAllowed, .ExtendRights])
+        let flags = AuthorizationFlags([.interactionAllowed, .extendRights])
 
-        status = AuthorizationCopyRights(authref, &rights, nil, flags, nil)
+        status = AuthorizationCopyRights(authref!, &rights, nil, flags, nil)
         if (status != OSStatus(errAuthorizationSuccess)) {
             print("AuthorizationCopyRights failed.")
             return;
         }
 
         var cfError: Unmanaged<CFError>?
-        let success = SMJobBless(kSMDomainSystemLaunchd, HelperServiceName, authref, &cfError)
+        let success = SMJobBless(kSMDomainSystemLaunchd, HelperServiceName as CFString, authref, &cfError)
         if !success {
             print("SMJobBless failed: \(cfError!)")
         }
@@ -99,8 +99,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func getversion() {
-        let xpc = NSXPCConnection(machServiceName: HelperServiceName, options: .Privileged)
-        xpc.remoteObjectInterface = NSXPCInterface(withProtocol: AuthorHelperProtocol.self)
+        let xpc = NSXPCConnection(machServiceName: HelperServiceName, options: .privileged)
+        xpc.remoteObjectInterface = NSXPCInterface(with: AuthorHelperProtocol.self)
         xpc.invalidationHandler = { print("XPC invalidated...!") }
         xpc.resume()
         print(xpc)

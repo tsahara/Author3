@@ -34,13 +34,6 @@
 			remoteGlobalIDString = 1F2C355E1C57AF490025B054;
 			remoteInfo = net.caddr.Author3Helper;
 		};
-		1F81D3801C66150500171A8D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F2C35141C57AC700025B054 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1F81D3781C6614B100171A8D;
-			remoteInfo = net.caddr.Author3HelperX;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -209,7 +202,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				1F81D3811C66150500171A8D /* PBXTargetDependency */,
 				1F2C35691C57B05E0025B054 /* PBXTargetDependency */,
 			);
 			name = Author3;
@@ -281,6 +273,9 @@
 				TargetAttributes = {
 					1F2C351B1C57AC700025B054 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 7PCDT74GU2;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 0;
@@ -289,13 +284,19 @@
 					};
 					1F2C352A1C57AC700025B054 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0810;
 						TestTargetID = 1F2C351B1C57AC700025B054;
 					};
 					1F2C355E1C57AF490025B054 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 7PCDT74GU2;
+						ProvisioningStyle = Automatic;
 					};
 					1F81D3781C6614B100171A8D = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 7PCDT74GU2;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -386,11 +387,6 @@
 			isa = PBXTargetDependency;
 			target = 1F2C355E1C57AF490025B054 /* net.caddr.Author3Helper */;
 			targetProxy = 1F2C35681C57B05E0025B054 /* PBXContainerItemProxy */;
-		};
-		1F81D3811C66150500171A8D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1F81D3781C6614B100171A8D /* net.caddr.Author3HelperX */;
-			targetProxy = 1F81D3801C66150500171A8D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -490,12 +486,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 7PCDT74GU2;
 				INFOPLIST_FILE = Author3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.caddr.Author3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -503,12 +501,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 7PCDT74GU2;
 				INFOPLIST_FILE = Author3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.caddr.Author3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -521,6 +521,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.caddr.Author3Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Author3.app/Contents/MacOS/Author3";
 			};
 			name = Debug;
@@ -534,6 +535,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.caddr.Author3Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Author3.app/Contents/MacOS/Author3";
 			};
 			name = Release;
@@ -541,6 +543,8 @@
 		1F2C35631C57AF490025B054 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 7PCDT74GU2;
 				OTHER_LDFLAGS = (
 					"-sectcreate",
 					__TEXT,
@@ -559,6 +563,8 @@
 		1F2C35641C57AF490025B054 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 7PCDT74GU2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -567,7 +573,8 @@
 		1F81D37D1C6614B100171A8D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 7PCDT74GU2;
 				OTHER_LDFLAGS = (
 					"-sectcreate",
 					__TEXT,
@@ -580,13 +587,15 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		1F81D37E1C6614B100171A8D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 7PCDT74GU2;
 				OTHER_LDFLAGS = (
 					"-sectcreate",
 					__TEXT,
@@ -599,6 +608,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

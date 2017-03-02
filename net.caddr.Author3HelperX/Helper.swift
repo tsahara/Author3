@@ -9,7 +9,7 @@
 import Foundation
 
 @objc protocol Author3HelperProtocol {
-    func getVersion(withReply: (NSString) -> Void)
+    func getVersion(_ withReply: (NSString) -> Void)
 }
 
 class Helper : NSObject, NSXPCListenerDelegate, Author3HelperProtocol {
@@ -23,17 +23,17 @@ class Helper : NSObject, NSXPCListenerDelegate, Author3HelperProtocol {
     
     func run() {
         listener.resume()
-        NSRunLoop.currentRunLoop().run()
+        RunLoop.current.run()
     }
 
-    func listener(listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
-        newConnection.exportedInterface = NSXPCInterface(withProtocol: Author3HelperProtocol.self)
+    func listener(_ listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
+        newConnection.exportedInterface = NSXPCInterface(with: Author3HelperProtocol.self)
         newConnection.exportedObject = self
         newConnection.resume()
         return true
     }
 
-    func getVersion(reply: (NSString) -> Void) {
-        reply(NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as! NSString)
+    func getVersion(_ reply: (NSString) -> Void) {
+        reply(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! NSString)
     }
 }
