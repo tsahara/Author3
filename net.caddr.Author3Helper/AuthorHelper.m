@@ -53,23 +53,17 @@
     reply([[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]);
 }
 
-- (void)getVersion2:(void(^)(NSString * version))reply
-{
-    reply(@"g-v-2");
-}
-
-
 - (void)openBPF:(void(^)(int))reply
 {
     reply(3);
 }
 
-- (void)authTest:(AuthorizationExternalForm *)form withReply:(void(^)(NSString * version))reply
+- (void)authTest:(NSData *)authData withReply:(void(^)(NSString * version))reply
 {
     AuthorizationRef authref;
     OSStatus myStatus;
 
-    myStatus = AuthorizationCreateFromExternalForm(form, &authref);
+    myStatus = AuthorizationCreateFromExternalForm([authData bytes], &authref);
     if (myStatus != errAuthorizationSuccess) {
         reply(@"form error");
         return;

@@ -14,9 +14,8 @@
 @required
 
 - (void)getVersion:(void(^)(NSString * version))reply;
-- (void)getVersion2:(void(^)(NSString * version))reply;
 - (void)openBPF:(void(^)(int))reply;
-- (void)authTest:(AuthorizationExternalForm *)form withReply:(void(^)(NSString * version))reply;
+- (void)authTest:(NSData *)authData withReply:(void(^)(NSString * version))reply;
 
 @end
 

@@ -12,8 +12,7 @@ import ServiceManagement
 
 @objc protocol AuthorHelperProtocol {
     func getVersion(_ withReply: (NSString) -> Void)
-    func getVersion2(_ withReply: (NSString) -> Void)
-    func authTest(_ form: AuthorizationExternalForm, withReply: (NSString) -> Void)
+    func authTest(_ authData: NSData, withReply: (NSString) -> Void)
     //func openBpf(withReply: (Int, Int) -> Void)
 }
 
@@ -158,12 +157,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return;
         }
 
-        proxy.getVersion2({
-            msg in
-            print("g-v-2 => \(msg)")
-        })
-        
-        proxy.authTest(form, withReply: {
+        let d = NSData(bytes: &form.bytes, length: MemoryLayout.size(ofValue: form.bytes))
+        proxy.authTest(d, withReply: {
             msg in
             print("msg=\(msg)")
         })
