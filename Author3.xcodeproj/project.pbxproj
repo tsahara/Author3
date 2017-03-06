@@ -17,6 +17,8 @@
 		1F81D3821C66155200171A8D /* net.caddr.Author3HelperX in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F81D3791C6614B100171A8D /* net.caddr.Author3HelperX */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1F81D3861C661A5600171A8D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81D3851C661A5600171A8D /* Helper.swift */; };
 		1F9F151B1C639FA80019438C /* AuthorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F151A1C639FA80019438C /* AuthorHelper.m */; };
+		1FB085341E6D76EA001BD447 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 1FB085331E6D76EA001BD447 /* README.md */; };
+		1FB085361E6D77F7001BD447 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 1FB085351E6D77F7001BD447 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		1F9F15181C60C8970019438C /* Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Launchd.plist; sourceTree = "<group>"; };
 		1F9F15191C639F5B0019438C /* AuthorHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthorHelper.h; sourceTree = "<group>"; };
 		1F9F151A1C639FA80019438C /* AuthorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorHelper.m; sourceTree = "<group>"; };
+		1FB085331E6D76EA001BD447 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1FB085351E6D77F7001BD447 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 				1F2C35601C57AF490025B054 /* net.caddr.Author3Helper */,
 				1F81D37A1C6614B100171A8D /* net.caddr.Author3HelperX */,
 				1F2C351D1C57AC700025B054 /* Products */,
+				1FB085331E6D76EA001BD447 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,6 +188,7 @@
 				1F81D37B1C6614B100171A8D /* main.swift */,
 				1F81D3831C66183D00171A8D /* Info.plist */,
 				1F81D3841C66184900171A8D /* Launchd.plist */,
+				1FB085351E6D77F7001BD447 /* README.md */,
 			);
 			path = net.caddr.Author3HelperX;
 			sourceTree = "<group>";
@@ -345,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB085341E6D76EA001BD447 /* README.md in Sources */,
 				1F2C35201C57AC700025B054 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB085361E6D77F7001BD447 /* README.md in Sources */,
 				1F81D37C1C6614B100171A8D /* main.swift in Sources */,
 				1F81D3861C661A5600171A8D /* Helper.swift in Sources */,
 			);
